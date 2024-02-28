@@ -1,12 +1,8 @@
 import "styles/tailwind.css"
+import React from "react"
 import { AppConfig } from "@/utils/AppConfig"
 
-interface LayoutProps {
-  children: React.ReactNode
-  leftNav?: React.ReactNode
-  rightNav?: React.ReactNode
-}
-export default function RootLayout({ children, leftNav, rightNav }: LayoutProps) {
+export default function RootLayout ({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body>
@@ -16,18 +12,7 @@ export default function RootLayout({ children, leftNav, rightNav }: LayoutProps)
               <div className="mr-0 pb-8 pt-6 sm:mr-0">
                 <img src="assets/images/logo_footer.png" width="250" alt="Arawato" />
               </div>
-              <div className="hidden justify-between">
-                {leftNav && (
-                  <nav>
-                    <ul className="flex flex-wrap gap-x-5 text-xl">{leftNav}</ul>
-                  </nav>
-                )}
-                {rightNav && (
-                  <nav>
-                    <ul className="flex flex-wrap gap-x-5 text-xl">{rightNav}</ul>
-                  </nav>
-                )}
-              </div>
+              
             </header>
 
             <main>{children}</main>
@@ -47,3 +32,4 @@ export default function RootLayout({ children, leftNav, rightNav }: LayoutProps)
     </html>
   )
 }
+
